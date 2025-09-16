@@ -1,7 +1,42 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "eb-icon": {
+      "projectType": "library",
+      "root": "projects/eb-icon",
+      "sourceRoot": "projects/eb-icon/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/eb-icon/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/eb-icon/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/eb-icon/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/eb-icon/src/test.ts",
+            "tsConfig": "projects/eb-icon/tsconfig.spec.json",
+            "karmaConfig": "projects/eb-icon/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "eb-icon"
 }
