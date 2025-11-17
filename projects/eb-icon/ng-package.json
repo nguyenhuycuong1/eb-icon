@@ -3,5 +3,7 @@
   "dest": "../../dist/eb-icon",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [],
+  "whitelistedNonPeerDependencies": []
 }
